@@ -1,6 +1,6 @@
 import { Document, define_document_schema, svid } from 'svedit';
-import Page from './components/Page.svelte';
-import Text from './components/Text.svelte';
+import Page from '$lib/Page.svelte';
+import Text from '$lib/Text.svelte';
 
 const document_schema = define_document_schema({
   page: {
