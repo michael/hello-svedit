@@ -1,4 +1,8 @@
-import { Document, define_document_schema, svid } from 'svedit';
+import { Document, define_document_schema } from 'svedit';
+
+import Overlays from '$lib/Overlays.svelte';
+import NodeCursorTrap from '$lib/NodeCursorTrap.svelte';
+
 import Page from '$lib/Page.svelte';
 import Text from '$lib/Text.svelte';
 
@@ -37,10 +41,17 @@ const raw_doc = [
 
 // App-specific config object, always available via doc.config for introspection
 const document_config = {
+  generate_id: function() {
+    return crypto.randomUUID().replace(/-/g, '');
+  },
+  system_components: {
+    Overlays,
+    NodeCursorTrap,
+  },
   // Registry of components for each node type
   node_components: {
-    page: Page,
-    text: Text,
+    Page,
+    Text,
   },
   node_layouts: {
     text: 4,
@@ -53,7 +64,7 @@ const document_config = {
   inserters: {
     text: function(tr, content = ['', []], layout = 1) {
       const new_text = {
-   			id: svid(),
+   			id: document_config.generate_id(),
    			type: 'text',
         layout,
    			content

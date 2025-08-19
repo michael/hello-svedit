@@ -9,3 +9,7 @@
 	--editing-fill-color: oklch(59.71% 0.22 283 / 0.1);
 	--editing-stroke-color: oklch(59.71% 0.22 283);
 }
+
+a {
+	text-decoration: underline;
+}
