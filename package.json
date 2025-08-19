@@ -35,6 +35,6 @@
 		"vite": "^7.0.4"
 	},
 	"dependencies": {
-		"svedit": "file:../svedit/svedit-0.1.0.tgz"
+		"svedit": "0.1.0"
 	}
 }
