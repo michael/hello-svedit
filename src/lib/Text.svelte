@@ -49,7 +49,7 @@
 </script>
 
 <Node {path}>
-	<div class="text layout-{layout} max-w-screen-lg mx-auto w-full">
+	<div class="text layout-{layout} max-w-screen-lg mx-auto w-full py-4">
 	  <AnnotatedStringProperty class={text_style} path={[...path, 'content']} placeholder={readable_text_type} />
 		{#if is_empty && is_selected}
 		  <span contenteditable="false" class="shortcuts caption">⌃⌥↓ next type ⌃⌥→ next layout</span>
@@ -59,11 +59,6 @@
 
 <style>
 	.text {
-		padding-inline-start: max(var(--s-10), env(safe-area-inset-left, 0px));
-		padding-inline-end: max(var(--s-10), env(safe-area-inset-right, 0px));
-		padding-block-start: max(var(--s-10), env(safe-area-inset-top, 0px));
-		padding-block-end: max(var(--s-10), env(safe-area-inset-bottom, 0px));
-		padding: var(--s-6);
 		position: relative;
 	}
 
