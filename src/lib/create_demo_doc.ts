@@ -8,15 +8,21 @@ import Text from '$lib/Text.svelte';
 
 const document_schema = define_document_schema({
   page: {
-    body: {
-      type: 'node_array',
-      node_types: ['text'],
-      default_node_type: 'text',
-    },
+    kind: 'document',
+    properties: {
+      body: {
+        type: 'node_array',
+        node_types: ['text'],
+        default_node_type: 'text',
+      },
+    }
   },
   text: {
-    layout: { type: 'integer' },
-    content: { type: 'annotated_string' },
+    kind: 'text',
+    properties: {
+      layout: { type: 'integer' },
+      content: { type: 'annotated_string' },
+    }
   }
 });
 
@@ -29,7 +35,7 @@ const raw_doc = [
     id: text_1_id,
     type: 'text',
     layout: 1,
-    content: ['Text and structured content in symbiosis', []]
+    content: { text: 'Text and structured content in symbiosis', annotations: []}
   },
   // IMPORTANT: The root node (entry point) must be the last one in the array
   {

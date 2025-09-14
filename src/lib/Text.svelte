@@ -1,6 +1,6 @@
 <script>
 	import { getContext } from 'svelte';
-	import { Node, AnnotatedStringProperty } from 'svedit';
+	import { Node, AnnotatedTextProperty } from 'svedit';
 
 	const svedit = getContext('svedit');
 	let { path } = $props();
@@ -42,7 +42,7 @@
 
 <Node {path}>
 	<div class="text layout-{layout} max-w-screen-lg mx-auto w-full py-4">
-	  <AnnotatedStringProperty class={text_style} path={[...path, 'content']} placeholder={readable_text_type} />
+	  <AnnotatedTextProperty class={text_style} path={[...path, 'content']} placeholder={readable_text_type} />
 	</div>
 </Node>
 
