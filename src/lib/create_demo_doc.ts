@@ -21,7 +21,11 @@ const document_schema = define_document_schema({
     kind: 'text',
     properties: {
       layout: { type: 'integer' },
-      content: { type: 'annotated_string' },
+      content: {
+        type: 'annotated_text',
+        node_types: [],
+        allow_newlines: false,
+      },
     }
   }
 });
@@ -75,7 +79,8 @@ const document_config = {
         layout,
    			content
   		};
-  		tr.insert_nodes([new_text]);
+      tr.create(new_text);
+  		tr.insert_nodes([new_text.id]);
       // NOTE: Relies on insert_nodes selecting the newly inserted node(s)
       tr.set_selection({
         type: 'text',
