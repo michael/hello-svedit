@@ -20,7 +20,6 @@
 			return paths;
 		}
 	}
-
 </script>
 
 {#if svedit.doc.selection?.type === 'property'}

@@ -41,15 +41,19 @@
 </script>
 
 <Node {path}>
-	<div class="text layout-{layout} max-w-screen-lg mx-auto w-full py-4">
-	  <AnnotatedTextProperty class={text_style} path={[...path, 'content']} placeholder={readable_text_type} />
+	<div class="text layout-{layout} mx-auto w-full max-w-screen-lg py-4">
+		<AnnotatedTextProperty
+			class={text_style}
+			path={[...path, 'content']}
+			placeholder={readable_text_type}
+		/>
 	</div>
 </Node>
 
 <style>
-  /* ATTENTION: We can not set this on .text because it makes contenteditable break the DOM.*/
-  /* See: https://bsky.app/profile/michaelaufreiter.com/post/3lxvdqyxc622s */
-  :global(.node) {
-    position: relative;
-  }
+	/* ATTENTION: We can not set this on .text because it makes contenteditable break the DOM.*/
+	/* See: https://bsky.app/profile/michaelaufreiter.com/post/3lxvdqyxc622s */
+	:global(.node) {
+		position: relative;
+	}
 </style>
