@@ -11,7 +11,7 @@
 	let is_focused = $derived(_is_focused());
 
 	function _is_focused() {
-		const sel = svedit.doc.selection;
+		const sel = svedit.session.selection;
 
 		if (
 			sel?.type === 'node' &&
@@ -43,11 +43,11 @@
 
 <style>
 	.cursor-trap {
-		outline: 1px dashed var(--stroke-color);
+		/*outline: 1px dashed var(--editing-stroke-color);*/
+		outline: 1px dashed color-mix(in srgb, var(--editing-stroke-color) 50%, transparent);
 		position: relative;
 		cursor: pointer;
 		z-index: 20;
-		overflow: hidden;
 	}
 
 	.node-cursor {
@@ -75,6 +75,10 @@
 			bottom: -6px;
 			left: 0;
 			right: 0;
+			height: 12px;
+		}
+
+		.cursor-trap .svedit-selectable {
 			height: 12px;
 		}
 
@@ -125,9 +129,5 @@
 			right: auto;
 			left: -6px;
 		}
-	}
-
-	.cursor-trap:hover {
-		outline: 1px dashed var(--editing-stroke-color);
 	}
 </style>

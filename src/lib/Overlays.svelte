@@ -6,7 +6,7 @@
 
 	function get_node_array_selection_paths() {
 		const paths = [];
-		const sel = svedit.doc.selection;
+		const sel = svedit.session.selection;
 		if (!sel) return;
 
 		// Node selection. Not collapsed.
@@ -22,10 +22,10 @@
 	}
 </script>
 
-{#if svedit.doc.selection?.type === 'property'}
+{#if svedit.session.selection?.type === 'property'}
 	<div
 		class="property-selection-overlay"
-		style="position-anchor: --{svedit.doc.selection.path.join('-')};"
+		style="position-anchor: --{svedit.session.selection.path.join('-')};"
 	></div>
 {/if}
 <!-- Here we render  and other stuff that should lay atop of the canvas -->

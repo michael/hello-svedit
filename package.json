@@ -1,7 +1,7 @@
 {
 	"name": "hello-svedit",
 	"private": true,
-	"version": "0.5.0",
+	"version": "0.6.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
@@ -35,6 +35,6 @@
 		"vite": "^7.2.4"
 	},
 	"dependencies": {
-		"svedit": "^0.5.0"
+		"svedit": "^0.6.0"
 	}
 }

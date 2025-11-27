@@ -4,7 +4,7 @@
 
 	const svedit = getContext('svedit');
 	let { path } = $props();
-	let node = $derived(svedit.doc.get(path));
+	let node = $derived(svedit.session.get(path));
 	let layout = $derived(node.layout || 1);
 	let text_style = $derived(get_text_style_from_layout(layout));
 	let readable_text_type = $derived(get_readable_text_type_from_layout(layout));
