@@ -50,10 +50,3 @@
 	</div>
 </Node>
 
-<style>
-	/* ATTENTION: We can not set this on .text because it makes contenteditable break the DOM.*/
-	/* See: https://bsky.app/profile/michaelaufreiter.com/post/3lxvdqyxc622s */
-	:global(.node) {
-		position: relative;
-	}
-</style>

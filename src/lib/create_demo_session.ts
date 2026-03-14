@@ -12,7 +12,6 @@ import {
 } from 'svedit';
 
 import Overlays from '$lib/Overlays.svelte';
-import NodeCursorTrap from '$lib/NodeCursorTrap.svelte';
 
 import Page from '$lib/Page.svelte';
 import Text from '$lib/Text.svelte';
@@ -64,8 +63,7 @@ const session_config = {
 		return crypto.randomUUID().replace(/-/g, '');
 	},
 	system_components: {
-		Overlays,
-		NodeCursorTrap
+		Overlays
 	},
 	// Registry of components for each node type
 	node_components: {
@@ -75,10 +73,6 @@ const session_config = {
 	node_layouts: {
 		text: 4
 	},
-	// Those node types have horizontal-ish node_arrays
-	// E.g. used by Overlays.svelte to render node cursors the right way.
-	node_types_with_horizontal_node_arrays: [],
-
 	/**
 	 * Factory function to create Svedit commands and keymap.
 	 * Called by Svedit component with the svedit context.

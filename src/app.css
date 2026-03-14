@@ -6,8 +6,10 @@
 	--secondary-fill-color: oklch(97% 0 0);
 	--primary-text-color: oklch(32.11% 0 0);
 	--stroke-color: oklch(0 0 0 / 0.1);
-	--editing-fill-color: oklch(59.71% 0.22 283 / 0.1);
-	--editing-stroke-color: oklch(59.71% 0.22 283);
+	--svedit-brand: oklch(59.71% 0.22 283);
+	--svedit-editing-stroke: var(--svedit-brand);
+	--svedit-editing-fill: oklch(from var(--svedit-brand) l c h / 0.1);
+	--svedit-canvas-stroke: color-mix(in oklch, currentColor 25%, transparent);
 }
 
 a {
