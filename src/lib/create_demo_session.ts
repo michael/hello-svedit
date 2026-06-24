@@ -8,6 +8,7 @@ import {
 	RedoCommand,
 	SelectParentCommand,
 	define_document_schema,
+	fill_document_defaults,
 	define_keymap
 } from 'svedit';
 
@@ -41,34 +42,45 @@ const document_schema = define_document_schema({
 });
 
 const doc = {
-	document_id: 'page_1',
+	document_id: 'page_a',
 	nodes: {
-		text_1: {
-			id: 'text_1',
+		text_a: {
+			id: 'text_a',
 			type: 'text',
 			layout: 1,
 			content: { text: 'Text and structured content in symbiosis', annotations: [] }
 		},
-		page_1: {
-			id: 'page_1',
+		page_a: {
+			id: 'page_a',
 			type: 'page',
-			body: ['text_1']
+			body: ['text_a']
 		}
 	}
 };
 
+// Only non-numeric ids are valid in Svedit because document paths are built from mixed string and number segments.
+function generate_id(length = 16) {
+	const id_alphabet = 'abcdefghijklmnopqrstuvwxyz';
+	const random_values = crypto.getRandomValues(new Uint8Array(length));
+	let id = '';
+
+	for (const random_value of random_values) {
+		id += id_alphabet[random_value % id_alphabet.length];
+	}
+
+	return id;
+}
+
 // App-specific config object, always available via doc.config for introspection
 const session_config = {
-	generate_id: function () {
-		return crypto.randomUUID().replace(/-/g, '');
-	},
+	generate_id,
 	system_components: {
-		Overlays
+		overlays: Overlays
 	},
 	// Registry of components for each node type
 	node_components: {
-		Page,
-		Text
+		page: Page,
+		text: Text
 	},
 	node_layouts: {
 		text: 4
@@ -131,6 +143,7 @@ const session_config = {
 };
 
 export default function create_demo_session() {
-	const session = new Session(document_schema, doc, session_config);
+	const demo_doc = fill_document_defaults(doc, document_schema);
+	const session = new Session(document_schema, demo_doc, session_config);
 	return session;
 }

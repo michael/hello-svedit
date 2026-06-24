@@ -41,7 +41,7 @@
 </script>
 
 <Node {path}>
-	<div class="text layout-{layout} mx-auto w-full max-w-screen-lg py-4">
+	<div class="text layout-{layout} mx-auto w-full max-w-5xl py-4">
 		<AnnotatedTextProperty
 			class={text_style}
 			path={[...path, 'content']}
@@ -49,4 +49,3 @@
 		/>
 	</div>
 </Node>
-
