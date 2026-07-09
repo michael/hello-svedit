@@ -33,7 +33,7 @@ const document_schema = define_document_schema({
 		properties: {
 			layout: { type: 'integer' },
 			content: {
-				type: 'annotated_text',
+				type: 'text',
 				node_types: [],
 				allow_newlines: false
 			}
@@ -48,12 +48,20 @@ const doc = {
 			id: 'text_a',
 			type: 'text',
 			layout: 1,
-			content: { text: 'Text and structured content in symbiosis', annotations: [] }
+			content: {
+				content: 'Text and structured content in symbiosis',
+				marks: [],
+				annotations: []
+			}
 		},
 		page_a: {
 			id: 'page_a',
 			type: 'page',
-			body: ['text_a']
+			body: {
+				nodes: ['text_a'],
+				marks: [],
+				annotations: []
+			}
 		}
 	}
 };
@@ -122,7 +130,7 @@ const session_config = {
 	// Custom functions to insert new "blank" nodes and setting the selection depening on the
 	// intended behavior.
 	inserters: {
-		text: function (tr, content = { text: '', annotations: [] }, layout = 1) {
+		text: function (tr, content = { content: '', marks: [], annotations: [] }, layout = 1) {
 			const new_text = {
 				id: session_config.generate_id(),
 				type: 'text',
