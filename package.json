@@ -1,8 +1,9 @@
 {
 	"name": "hello-svedit",
 	"private": true,
-	"version": "0.12.0",
+	"version": "0.13.0",
 	"type": "module",
+	"packageManager": "pnpm@11.15.1",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -35,6 +36,6 @@
 		"vite": "^8.0.0"
 	},
 	"dependencies": {
-		"svedit": "^0.12.0"
+		"svedit": "^0.13.0"
 	}
 }
