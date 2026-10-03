@@ -3,7 +3,7 @@
 	// https://github.com/michael/svedit/blob/main/src/routes/%2Bpage.svelte
 	import { setContext } from 'svelte';
 	import { Svedit, KeyMapper } from 'svedit';
-	import create_demo_session from '$lib/create_demo_session';
+	import create_demo_session from '#lib/create_demo_session.js';
 
 	const session = create_demo_session();
 
@@ -18,6 +18,6 @@
   You might want to mount a fixed toolbar <Toolbar> here. See:
   https://github.com/michael/svedit/blob/main/src/routes/components/Toolbar.svelte
 
-  Or if you prefer floating tools, hack $lib/Overlays.svelte.
+  Or if you prefer floating tools, hack #lib/Overlays.svelte.
 -->
 <Svedit {session} editable={true} path={[session.doc.document_id]} />

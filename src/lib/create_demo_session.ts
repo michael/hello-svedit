@@ -12,10 +12,10 @@ import {
 	define_keymap
 } from 'svedit';
 
-import Overlays from '$lib/Overlays.svelte';
+import Overlays from '#lib/Overlays.svelte';
 
-import Page from '$lib/Page.svelte';
-import Text from '$lib/Text.svelte';
+import Page from '#lib/Page.svelte';
+import Text from '#lib/Text.svelte';
 
 const document_schema = define_document_schema({
 	page: {
